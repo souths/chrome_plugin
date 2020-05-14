@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "chrome-ext",
+    "description": "chrome extension",
+    "version": "0.0.1",
+    "options_page": "options.html",
+    "browser_action": {
+        "default_icon": "assets/icons/16.png",
+        "default_popup": "popup.html",
+        "default_title": "番茄钟-劳逸结合提高工作效率"
+    },
+    "chrome_url_overrides": {
+        "newtab": "tab.html"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "css": [
+            "css/content.css"
+        ],
+        "js": [
+            "js/content.js"
+        ],
+        "run_at": "document_end"
+    }],
+    "web_accessible_resources": ["fonts/*"]
+}
